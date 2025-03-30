@@ -1,0 +1,60 @@
+---
+import Comets from '../components/Comets.astro';
+import Signpost from '../components/Signpost.astro';
+import Base from '../layouts/Base.astro';
+import Earth from '../components/Earth.astro';
+
+import GithubBlurb from '../components/blurbs/GithubBlurb.astro';
+import DocsBlurb from '../components/blurbs/DocsBlurb.astro';
+import BlurbContainer from '../components/blurbs/BlurbContainer.astro';
+import type { Blurb } from '../components/blurbs/types';
+import _blurbs from './highlights.json';
+
+const blurbs: Blurb[] = _blurbs as Blurb[];
+const age = Math.floor((Date.now() - new Date(2004, 6, 26).getTime()) / (365.25 * 24 * 60 * 60 * 1000));
+---
+<Base>
+	<Earth />
+	<Comets />
+	<Signpost width="50%">
+		<div>
+			<h1 style="text-align: center;"><i>"These are the two tenets of <a style="color: blue" href="https://antifandom.com/outerwilds/wiki/Nomai">Nomai</a> philosophy; to seek out and to understand is our way of living.” <br>- <a style="color: blue" href="https://antifandom.com/outerwilds/wiki/Solanum">Solanum</a></i></h1>
+		</div>
+	</Signpost>
+	<Signpost width="50%">
+		<div class="container">
+			<h1 style="text-align: center;">Welcome to Synthhex.io 🌌</h1>
+			<p>I am Valerie-June, a {age} year-old 🇧🇬Bulgarian programmer currently living in the 🇳🇱Netherlands. This is my little corner of the 🌐Internet. Here you will find my portfolio, various thoughts and comments, all boxed up in a neat space-themed layout. Space is integral to who I am, and to <a href="https://antifandom.com/outerwilds/wiki/Outer_Wilds_Ventures" style="color: red">who I aspire to be</a>. 🌌🌌🌌</p>
+		</div>
+	</Signpost>
+	<Signpost width="25%" chained={true} color="yellow">
+		<div>
+			<h1 style="text-align: center;">My Socials</h1>
+			<div class="column" style="align-items: start; margin: auto;">
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 40px;">
+					<img src="/li-logo.png" alt="LinkedIn" style="width: 25px; height: 25px; margin: 5px; border-radius: 20%;" />
+					<h3><a target="_blank" href="https://www.linkedin.com/in/valerie-june-kamberova/">LinkedIn</a></h3>
+				</div>
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 40px;">
+					<img src="/ig-logo.webp" alt="Instagram" style="width: 25px; height: 25px; margin: 5px; border-radius: 20%;" />
+					<h3><a target="_blank" href="https://www.instagram.com/helixglitch/">Instagram</a></h3>
+				</div>
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 40px;">
+					<img src="/gh-logo.webp" alt="GitHub" style="width: 25px; height: 25px; margin: 5px; border-radius: 20%;" />
+					<h3><a target="_blank" href="https://github.com/synthhex">GitHub</a></h3>
+				</div>
+				<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; height: 40px;">
+					<img src="/dc-logo.png" alt="Discord" style="width: 25px; height: 25px; margin: 5px; border-radius: 20%;" />
+					<h3><a target="_blank" href="https://discord.com/users/helixglitch">helixglitch</a></h3>
+				</div>
+			</div>
+		</div>
+	</Signpost>
+	
+	<Signpost width="50%">
+		<div class="container">
+			<h1 style="text-align: center;">Some Highlights</h1>
+			<BlurbContainer blurbs={blurbs} />
+		</div>
+	</Signpost>
+</Base>

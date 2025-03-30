@@ -1,0 +1,41 @@
+[
+    {
+        "type": "text",
+        "title": "Humanise Project",
+        "description": "A research group that aims to refine teleoperations in outer space through technological and psychological studies. As the robotics software engineer, I regret to inform you that our code is proprietary 😐. Reach out on LinkedIn for more information!",
+        "link": "https://humaniseproject.com/",
+        "image": "/humanise-logo.jpeg"
+    },
+    {
+        "type": "github",
+        "repo": "https://api.github.com/repos/synthhex/impostor2bot",
+        "useGithubDescription": true,
+        "fallback": {
+            "title": "impostor2bot",
+            "description": "An Among Us Discord bot that allows a user to create a session in a voice channel, muting and unmuting everyone based on the user's self-mute state.",
+            "link": "https://github.com/synthhex/impostor2bot"
+        }
+    },
+    {
+        "type": "github",
+        "repo": "https://api.github.com/repos/synthhex/assembly",
+        "useGithubDescription": true,
+        "fallback": {
+            "title": "assembly",
+            "description": "A select collection of my assembly projects, including a Brainfuck interpreter.",
+            "link": "https://github.com/synthhex/assembly"
+        }
+    },
+    {
+        "type": "docs",
+        "title": "It's Always Sunny on Mount Olympus",
+        "description": "An in-house theater play script written by the writing team of DWH-UPstage, of which I am the head writer. The play tells the story of a group of Greek gods seeking to reconcile Zeus with reason. A parody of the sitcom \"It's Always Sunny in Philadelphia.\"",
+        "link": "https://docs.google.com/document/d/1T-qHSmh7WEbz-E_sViJ4RMf2olQraHqVimIO7APdeGw/"
+    },
+    {
+        "type": "docs",
+        "title": "O Captain! My Captain!",
+        "description": "A story about Philip Watton, an engineer living in New London from the fictional universe of Frostpunk. The story is about his struggles to grant long-lost technology to the people under the pressure of an authoritarian regime that feels threatened by his breakthrough.",
+        "link": "https://docs.google.com/document/d/1j3OyLEJdR35R7JCnzXLZl7SgFJi8gKDunaz3dUiO1vo/"
+    }
+]

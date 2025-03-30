@@ -1,0 +1,119 @@
+<div class="comet-container">
+    <style is:inline>
+        .comet {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            animation: comet-animation var(--duration) infinite;
+            background: radial-gradient(circle, var(--color), transparent);
+            box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            z-index: -1;
+            transform-origin: center;
+            transform: rotate(var(--angle));
+        }
+
+        .comet::before {
+            z-index: -2;
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -295px;
+            width: 300px;
+            height: 2px;
+            animation: tail-animation var(--duration) infinite;
+            background: linear-gradient(to left, hsl(from var(--color) h s l / 80%), transparent);
+            border-radius: 100%;
+        }
+
+        @keyframes comet-animation {
+            0% {
+                transform: translate(var(--start-x), var(--start-y)) rotate(var(--angle)); /* Start off-screen */
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--end-x), var(--end-y)) rotate(var(--angle)); /* Move across screen */
+                opacity: 0;
+            }
+        }
+
+        @keyframes tail-animation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        const COMET_COUNT = 40;
+
+        const container = document.getElementsByClassName('comet-container')[0];
+
+        function createComet(onExpire: (comet: HTMLElement) => void) {
+            const comet = document.createElement('div');
+            comet.classList.add('comet');
+
+            // Randomize comet's starting position.
+            const { duration } = randomizeComet(comet);
+
+            setTimeout(() => {
+                if (onExpire instanceof Function) onExpire(comet);
+            }, duration * 1000);
+            console.log(123);
+
+            return [comet, duration] as const;
+        }
+
+        const FLAT_DURATION = 1.5;
+        const MODIFIER_DURATION = 3;
+
+        function randomizeComet(comet: HTMLElement) {
+            const angle = 45;
+            const startX = (window.innerWidth * 0.15) + Math.random() * (window.innerWidth * 0.7);
+            const startY = -comet.offsetHeight
+            const distance = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
+            const duration = Math.random() * MODIFIER_DURATION + FLAT_DURATION;
+            const endX = startX + distance * Math.cos(angle / 180 * Math.PI);
+            const endY = startY + distance * Math.sin(angle / 180 * Math.PI);
+
+            comet.style.setProperty('--color', `hsl(${Math.random() * 360}, 100%, 70%)`);
+            comet.style.setProperty('--radius', `${Math.random() * 10 + 15}px`);
+            comet.style.setProperty('--angle', `${angle}deg`);
+            comet.style.setProperty('--duration', `${duration}s`);
+            comet.style.setProperty('--start-x', `${startX}px`);
+            comet.style.setProperty('--start-y', `${startY}px`);
+            comet.style.setProperty('--end-x', `${endX}px`);
+            comet.style.setProperty('--end-y', `${endY}px`);
+
+            return { duration };
+        }
+
+        function cometInit() {
+            requestAnimationFrame(cometLoop);
+        }
+
+        document.body.onload = cometInit;
+
+        async function cometLoop() {
+            for (let i = 0; i < Math.min(COMET_COUNT - container.children.length, COMET_COUNT / 10); ++i) {
+                const [comet, duration] = createComet(comet => {
+                    // randomizeComet(comet);
+                });
+                container.appendChild(comet);
+            }
+            await new Promise(resolve => setTimeout(resolve, (FLAT_DURATION + MODIFIER_DURATION / 2) * 1000 / (COMET_COUNT / 4)));
+            requestAnimationFrame(cometLoop);
+        }
+    </script>
+</div>

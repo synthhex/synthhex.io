@@ -1,0 +1,106 @@
+---
+import chroma from 'chroma-js';
+
+interface Props {
+    width?: string;
+    height?: string;
+    color?: string;
+    chained?: boolean;
+}
+
+const width = Astro.props.width || 'auto';
+const height = Astro.props.height || 'auto';
+const display = Astro.props.chained ? 'block' : 'none';
+const color = chroma(Astro.props.color || 'white').hsl();
+const hue = parseFloat((color[0] % 360 + 360) % 360 as any).toFixed(2);
+const saturation = parseFloat(color[1].toString()).toFixed(2);
+const lightness = parseFloat(color[2].toString()).toFixed(2);
+---
+<div class="container column signpost">
+    <style is:global define:vars={{ width, height, display, hue, saturation, lightness }}>
+        .signpost {
+            width: var(--width) !important;
+            height: var(--height) !important;
+        }
+
+        @media (max-width: 750px) {
+            .signpost {
+                width: 70% !important;
+                height: var(--height) !important;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .signpost {
+                width: 90% !important;
+                height: var(--height) !important;
+            }
+        }
+
+        .signpost {
+            padding: 15px !important;
+            margin: 10px auto;
+            border: 5px solid rgb(53, 48, 48);
+            border-radius: 20px;
+            background-image: url('/back.png');
+            background-repeat: repeat;
+            background-size: 25% auto;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .hinge {
+            width: 16px;
+            height: 16px;
+            background-color: rgb(66, 61, 61);
+            border-radius: 50%;
+            position: absolute;
+            content: '';
+        }
+
+        .hinge#tl {
+            left: 25px;
+            top: -10px;
+        }
+        .hinge#tr {
+            right: 25px;
+            top: -10px;
+        }
+        .hinge#bl {
+            left: 25px;
+            bottom: -10px;
+        }
+        .hinge#br {
+            right: 25px;
+            bottom: -10px;
+        }
+
+        #tr::after, #br::after, #tl::after, #bl::after {
+            display: var(--display);
+            filter: hue-rotate(calc(var(--hue) * 1deg)) saturate(var(--saturation)) /* brightness(calc(0.5 + var(--lightness) * 2)) AAAA */;
+            top: -17px;
+            content: "";
+            position: absolute;
+            color: white;
+            height: 50px;
+            background-image: url('/chain.svg');
+            background-repeat: repeat-x;
+            width: 50vw;
+        }
+
+        #tr::after, #br::after {
+            left: 16px;
+        }
+
+        #tl::after, #bl::after {
+            left: 0px;
+            transform: scaleX(-1);
+            transform-origin: left;
+        }
+    </style>
+    <div class="hinge left" id="tl" />
+    <div class="hinge right" id="tr" />
+    <div class="hinge left" id="bl" />
+    <div class="hinge right" id="br" />
+    <slot />
+</div>

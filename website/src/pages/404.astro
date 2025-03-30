@@ -1,0 +1,16 @@
+---
+import Comets from '../components/Comets.astro';
+import Signpost from '../components/Signpost.astro';
+import Base from '../layouts/Base.astro';
+import Earth from '../components/Earth.astro';
+---
+<Base>
+	<Earth />
+	<Comets />
+	<Signpost width="50%">
+		<div>
+			<h1 style="text-align: center;">Uh oh...</h1>
+			<p>There's nothing here! <a href="/">Go back</a>?</p>
+		</div>
+	</Signpost>
+</Base>

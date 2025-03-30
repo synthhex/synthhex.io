@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/synthhex.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthhex.io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style is:global>
+        * {
+			box-sizing: border-box;
+            scroll-behavior: smooth;
+		}
+
+		html, body {
+			width: 100%;
+			height: 100dvh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            overscroll-behavior: none;
+		}
+
+		body {
+            color: white;
+            font-family: 'Nunito Sans', sans-serif;
+            overflow-wrap: break-word;
+			background-image: url('/stars.png'), linear-gradient(45deg,#0f1a0b,#080e17, #080817);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Exo 2', sans-serif;
+            vertical-align: middle;
+        }
+
+        h1 {
+            font-weight: 700;
+            vertical-align: middle;
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+
+        a:link {
+            color: white;
+        }
+
+		.container {
+			padding: 5px;
+			width: 100%;
+			height: 100%;
+		}
+
+		.column {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+	</style>
+</head>
+<body>
+    <script type="module" src="/src/main.tsx"></script>
+	<div class="container column" id="signs">
+        <style>
+            #signs {
+                overflow: hidden;
+                overflow-y: scroll;
+                position: relative;
+            }
+        </style>
+		<slot />
+	</div>
+</body>
+</html>

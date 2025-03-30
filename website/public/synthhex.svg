@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_9" data-name="Layer 9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 94.57 99.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6dbe45;
+        stroke: #006838;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-7 {
+        fill: #11a74a;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke-width: 7px;
+      }
+
+      .cls-2, .cls-5 {
+        stroke: #fff;
+      }
+
+      .cls-8, .cls-3, .cls-5 {
+        fill: none;
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-3, .cls-6 {
+        stroke: #231f20;
+      }
+
+      .cls-4 {
+        fill: #a8d37f;
+        stroke: #8dc63f;
+      }
+
+      .cls-10 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5 {
+        stroke-width: .5px;
+      }
+
+      .cls-6 {
+        fill: #121a0e;
+      }
+
+      .cls-11 {
+        mask: url(#mask);
+      }
+
+      .cls-12 {
+        filter: url(#luminosity-invert-noclip);
+      }
+    </style>
+    <filter id="luminosity-invert-noclip" x="0" y="0" width="94.57" height="107.46" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feColorMatrix result="cm" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="cm" in2="bg"/>
+    </filter>
+    <clipPath id="clippath">
+      <rect class="cls-8" x="9.27" y="6.29" width="38.01" height="101.18"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-8" x="47.29" y="6.29" width="38.01" height="101.18"/>
+    </clipPath>
+    <mask id="mask" x="0" y="0" width="94.57" height="107.46" maskUnits="userSpaceOnUse">
+      <g class="cls-12">
+        <g>
+          <g class="cls-10">
+            <line class="cls-2" x1="43.95" y1="106.41" x2="12.61" y2="7.34"/>
+          </g>
+          <g class="cls-9">
+            <line class="cls-2" x1="50.62" y1="106.41" x2="81.96" y2="7.34"/>
+          </g>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <g id="Layer_3" data-name="Layer 3">
+    <g class="cls-11">
+      <g>
+        <polygon class="cls-4" points="4.7 25.16 47.29 .58 89.87 25.16 89.87 74.33 47.29 98.92 4.7 74.33 4.7 25.16"/>
+        <polygon class="cls-7" points="8.55 27.39 47.29 5.02 86.02 27.39 86.02 72.11 47.29 94.47 8.55 72.11 8.55 27.39"/>
+        <polygon class="cls-1" points="70.64 9.3 23.93 9.3 .58 49.75 23.93 90.2 70.64 90.2 94 49.75 70.64 9.3"/>
+        <polygon class="cls-6" points="67.91 85.74 26.43 85.61 5.8 49.62 26.66 13.76 68.14 13.89 88.77 49.88 67.91 85.74"/>
+        <polyline class="cls-5" points="41.65 84.62 81.51 38.81 58.63 14.45 20.2 27.55 15.81 63.79 15.81 63.79 33.09 84.62 76.01 69.93 35 14.45 21.91 74.58 73.63 24.87 73.63 24.87"/>
+        <polygon class="cls-3" points="67.42 14.88 27.16 14.88 7.02 49.75 27.16 84.62 67.42 84.62 87.55 49.75 67.42 14.88"/>
+      </g>
+    </g>
+  </g>
+</svg>

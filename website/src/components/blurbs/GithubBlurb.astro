@@ -1,0 +1,56 @@
+---
+import { defaultFallback, type IGithubBlurb } from './types';
+
+interface Props extends IGithubBlurb {};
+const { repo, useGithubDescription = false, fallback = defaultFallback } = Astro.props as Props;
+const fetched = import.meta.env.DEV ? {} : await (await fetch(repo)).json();
+---
+
+<div class="blurb">
+    <style>
+        .blurb {
+            max-width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 5px;
+            padding: 5px;
+            background-color: rgb(75, 68, 68);
+            border: 3px solid gray;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+        }
+        a#icon, img#icon {
+            width: 64px;
+            height: 64px;
+            margin: 0;
+            border-radius: 10px;
+        }
+        a#title {
+            color: white;
+        }
+        .blurb h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .blurb p {
+            font-size: 1rem;
+            text-align: end;
+            white-space: normal;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="row">
+        <a href={fetched.html_url ?? fallback.link} target="_blank" id="icon">
+            <img src="/gh-logo.webp" alt={fetched.name ?? fallback.title} id="icon" />
+        </a>
+        <div style="display: flex; flex-direction: column; align-items: end; padding: 10px;">
+            <a href={fetched.html_url ?? fallback.link} target="_blank" id="title"><h2>{fetched.name ?? fallback.title}</h2></a>
+            {
+                useGithubDescription
+                    ? <p>{fetched.description ?? fallback.description}</p> : null
+            }
+            <slot />
+        </div>
+    </div>
+</div>
