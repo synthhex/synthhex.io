@@ -3,11 +3,11 @@ import { defaultFallback, type ITextBlurb } from './types';
 
 interface Props extends ITextBlurb {};
 
-const { title, description, image, link, fallback = defaultFallback } = Astro.props as ITextBlurb;
+const { title, description, image, link, color = 'rgb(75, 68, 68)', fallback = defaultFallback } = Astro.props as ITextBlurb;
 ---
 
 <div class="blurb">
-    <style>
+    <style define:vars={{ color }}>
         .blurb {
             max-width: 100%;
             display: flex;
@@ -15,7 +15,7 @@ const { title, description, image, link, fallback = defaultFallback } = Astro.pr
             align-items: center;
             margin: 5px;
             padding: 5px;
-            background-color: rgb(75, 68, 68);
+            background-color: var(--color);
             border: 3px solid gray;
             border-radius: 10px;
             box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -31,6 +31,7 @@ const { title, description, image, link, fallback = defaultFallback } = Astro.pr
         }
         .blurb h2 {
             font-size: 1.5rem;
+            text-align: end;
             margin: 0;
         }
         .blurb p {
@@ -39,15 +40,19 @@ const { title, description, image, link, fallback = defaultFallback } = Astro.pr
             white-space: normal;
             margin-bottom: 10px;
         }
+
+        .row {
+            width: 100%;
+            flex-grow: 1;
+        }
     </style>
     <div class="row">
         <a href={link ?? fallback.link} target="_blank" id="icon">
             <img src={image} alt={title ?? fallback.title} id="icon" />
         </a>
-        <div style="display: flex; flex-direction: column; align-items: end; padding: 10px;">
+        <div style="display: flex; flex-direction: column; align-items: end; padding: 10px; width: 100%;">
             <a href={link ?? fallback.link} target="_blank" id="title"><h2>{title ?? fallback.title}</h2></a>
-                <p>{description ?? fallback.description}</p>
-            <slot />
+            <p>{description ?? fallback.description}</p>
         </div>
     </div>
 </div>

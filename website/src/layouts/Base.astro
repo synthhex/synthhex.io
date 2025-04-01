@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/synthhex.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Synthhex.io - A personal website." />
+    <meta name="author" content="Synthhex" />
+    <meta name="theme-color" content="#0f1a0b" />
+
     <title>Synthhex.io</title>
+
+    <link rel="icon" type="image/svg+xml" href="/synthhex.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
     
     <style is:global>
         * {
@@ -24,10 +28,28 @@
             overscroll-behavior: none;
 		}
 
+        @font-face {
+            font-family: 'Exo 2';
+            src: url('/fonts/Exo2-Variable.woff2') format('woff2');
+            font-weight: 700;
+            font-style: bold;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Nunito Sans';
+            src: url('/fonts/NunitoSans-Variable.woff2') format('woff2');
+            font-weight: 400;
+            font-stretch: 100%;
+            font-style: normal;
+            font-display: swap;
+        }
+
 		body {
             color: white;
             font-family: 'Nunito Sans', sans-serif;
             overflow-wrap: break-word;
+            background-color: #080e17;
 			background-image: url('/stars.png'), linear-gradient(45deg,#0f1a0b,#080e17, #080817);
         }
 
@@ -71,7 +93,6 @@
 	</style>
 </head>
 <body>
-    <script type="module" src="/src/main.tsx"></script>
 	<div class="container column" id="signs">
         <style>
             #signs {

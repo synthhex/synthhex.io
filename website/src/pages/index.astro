@@ -4,8 +4,6 @@ import Signpost from '../components/Signpost.astro';
 import Base from '../layouts/Base.astro';
 import Earth from '../components/Earth.astro';
 
-import GithubBlurb from '../components/blurbs/GithubBlurb.astro';
-import DocsBlurb from '../components/blurbs/DocsBlurb.astro';
 import BlurbContainer from '../components/blurbs/BlurbContainer.astro';
 import type { Blurb } from '../components/blurbs/types';
 import _blurbs from './highlights.json';
@@ -27,7 +25,7 @@ const age = Math.floor((Date.now() - new Date(2004, 6, 26).getTime()) / (365.25 
 			<p>I am Valerie-June, a {age} year-old 🇧🇬Bulgarian programmer currently living in the 🇳🇱Netherlands. This is my little corner of the 🌐Internet. Here you will find my portfolio, various thoughts and comments, all boxed up in a neat space-themed layout. Space is integral to who I am, and to <a href="https://antifandom.com/outerwilds/wiki/Outer_Wilds_Ventures" style="color: red">who I aspire to be</a>. 🌌🌌🌌</p>
 		</div>
 	</Signpost>
-	<Signpost width="25%" chained={true} color="yellow">
+	<Signpost width="25%" chained={true} color="white">
 		<div>
 			<h1 style="text-align: center;">My Socials</h1>
 			<div class="column" style="align-items: start; margin: auto;">

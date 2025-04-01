@@ -4,7 +4,8 @@
         "title": "Humanise Project",
         "description": "A research group that aims to refine teleoperations in outer space through technological and psychological studies. As the robotics software engineer, I regret to inform you that our code is proprietary 😐. Reach out on LinkedIn for more information!",
         "link": "https://humaniseproject.com/",
-        "image": "/humanise-logo.jpeg"
+        "image": "/humanise-logo.jpeg",
+        "color": "#703030"
     },
     {
         "type": "github",
@@ -14,6 +15,16 @@
             "title": "impostor2bot",
             "description": "An Among Us Discord bot that allows a user to create a session in a voice channel, muting and unmuting everyone based on the user's self-mute state.",
             "link": "https://github.com/synthhex/impostor2bot"
+        }
+    },
+    {
+        "type": "github",
+        "repo": "https://api.github.com/repos/synthhex/synthhex.io",
+        "useGithubDescription": true,
+        "fallback": {
+            "title": "synthhex.io",
+            "description": "The website you're on.",
+            "link": "https://github.com/synthhex/synthhex.io"
         }
     },
     {

@@ -70,8 +70,7 @@
             setTimeout(() => {
                 if (onExpire instanceof Function) onExpire(comet);
             }, duration * 1000);
-            console.log(123);
-
+            
             return [comet, duration] as const;
         }
 

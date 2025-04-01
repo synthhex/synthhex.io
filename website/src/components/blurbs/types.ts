@@ -33,6 +33,7 @@ export interface ITextBlurb extends IBlurb<'text'> {
     description: string;
     link?: string;
     image?: string;
+    color?: string;
 }
 
 export type Blurb = IGithubBlurb | IDocsBlurb | ITextBlurb;
